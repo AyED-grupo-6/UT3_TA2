@@ -17,13 +17,13 @@ public interface ILista<T> {
      * @return El valor del nodo si se encuentra, null en caso contrario.
      */
     public T buscar(Comparable clave);
-
     /**
      * Elimina un nodo de la lista utilizando su clave.
      *
      * @param clave - La clave del nodo a eliminar.
      * @return True si el nodo fue eliminado con éxito, false en caso contrario.
      */
+
     public boolean eliminar(Comparable clave);
 
     /**

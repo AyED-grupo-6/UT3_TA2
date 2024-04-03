@@ -16,8 +16,21 @@ public class Lista<T> implements ILista<T> {
 
     @Override
     public T buscar(Comparable clave) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscar'");
+        if (primero == null) {
+            return null;
+        } else {
+            {
+                Nodo<T> actual = primero;
+                while (actual != null) {
+                    if (actual.compareTo(clave) == 0) {
+                        return actual.getDato();
+                    }
+                    actual = actual.getSiguiente();
+                }
+                return null;
+            }
+            // throw new UnsupportedOperationException("Unimplemented method 'buscar'");
+        }
     }
 
     @Override
@@ -55,7 +68,6 @@ public class Lista<T> implements ILista<T> {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'setPrimero'");
     }
-
 
     // implementar los metodos indicados en la interfaz
 }
