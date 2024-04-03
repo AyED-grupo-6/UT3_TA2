@@ -31,7 +31,7 @@ public class Almacen implements IAlmacen {
     };
 
     public long obtenerValorStock() {
-
+        return 0;
     }
 
     /**
@@ -39,7 +39,9 @@ public class Almacen implements IAlmacen {
      *
      * @param unProducto
      */
-    public void insertarProducto(IProducto unProducto);
+    public void insertarProducto(IProducto unProducto) {
+        this.listaProductos.insertar(unProducto, unProducto.getCodProducto());
+    };
 
     /**
      * Eliminar productos que ya no se venden (por no ser comercializados m�s).
@@ -116,14 +118,17 @@ public class Almacen implements IAlmacen {
      * @param clave
      * @return
      */
-    public IProducto buscarPorCodigo(Comparable codProducto);
+    public IProducto buscarPorCodigo(Comparable codProducto) {
+        return this.listaProductos.buscar(codProducto);
+    };
 
     /**
      * Listar todos los productos registrados, ordenados por nombre, presentando
      * adem�s su stock. Imprime por consola la lista de todos los productos
      * registrados y su stock actual.
      */
-    public void listarOrdenadoPorNombre();
+    public void listarOrdenadoPorNombre() {
+    };
 
     /**
      * Busca un producto por su descripci�n.
@@ -131,7 +136,9 @@ public class Almacen implements IAlmacen {
      * @param descripcion
      * @return
      */
-    public IProducto buscarPorDescripcion(String descripcion);
+    public IProducto buscarPorDescripcion(String descripcion) {
+        return null;
+    };
 
     /**
      * Retorna el tama�o del almacen: cantidad de productos. No es lo mismo que
@@ -139,5 +146,7 @@ public class Almacen implements IAlmacen {
      *
      * @return
      */
-    public int cantidadProductos();
+    public int cantidadProductos() {
+        return 0;
+    };
 }
