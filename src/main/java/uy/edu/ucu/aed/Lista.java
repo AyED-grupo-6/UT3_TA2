@@ -45,8 +45,23 @@ public class Lista<T> implements ILista<T> {
 
     @Override
     public boolean eliminar(Comparable clave) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'eliminar'");
+        if (this.primero.getEtiqueta().compareTo(clave) == 0) {
+            this.primero = this.primero.getSiguiente();
+            return true;
+        } else {
+            INodo previo = this.primero;
+            INodo actual = this.primero.getSiguiente();
+            while (actual.getEtiqueta().compareTo(clave) != 0 && actual != null) {
+                previo = actual;
+                actual = actual.getSiguiente();
+            }
+            if (actual != null) {
+                previo.setSiguiente(actual.getSiguiente());
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 
     @Override

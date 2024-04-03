@@ -1,36 +1,38 @@
 package uy.edu.ucu.aed;
 
-public class Almacen implements IAlmacen{
+public class Almacen implements IAlmacen {
     private String direccion;
     private String telefono;
     private Lista<IProducto> listaProductos;
     private String nombre;
 
-    public String getDireccion(){
+    public String getDireccion() {
         return this.direccion;
     };
 
-    public void setDireccion(String direccion){
+    public void setDireccion(String direccion) {
         this.direccion = direccion;
     };
 
-    public String getTelefono(){
+    public String getTelefono() {
         return this.telefono;
     };
 
-    public void setTelefono(String telefono){
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     };
 
-    public String getNombre(){
+    public String getNombre() {
         return this.nombre;
     };
 
-    public Lista<IProducto> getListaProductos(){
+    public Lista<IProducto> getListaProductos() {
         return this.listaProductos;
     };
-    
-    public long obtenerValorStock();
+
+    public long obtenerValorStock() {
+
+    }
 
     /**
      * Incorporar un nuevo producto al supermercado.
@@ -45,7 +47,14 @@ public class Almacen implements IAlmacen{
      * @param clave
      * @return
      */
-    public boolean eliminarProducto(Comparable codProducto);
+    public boolean eliminarProducto(Comparable codProducto) {
+        try {
+            this.listaProductos.eliminar(codProducto);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    };
 
     /**
      * Imprime la lista de productos
@@ -70,7 +79,14 @@ public class Almacen implements IAlmacen{
      * @param cantidad
      * @return
      */
-    public Boolean agregarStock(Comparable codProducto, Integer cantidad);
+    public Boolean agregarStock(Comparable codProducto, Integer cantidad) {
+        try {
+            this.listaProductos.buscar(codProducto).agregarCantidadStock(cantidad);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    };
 
     /**
      * Simular la venta de un producto (reducir el stock de un producto
@@ -80,7 +96,18 @@ public class Almacen implements IAlmacen{
      * @param cantidad
      * @return
      */
-    public Integer restarStock(Comparable codProducto, Integer cantidad);
+    public Integer restarStock(Comparable codProducto, Integer cantidad) {
+        try {
+            int cantidadPrevia = this.listaProductos.buscar(codProducto).getStock();
+            if (cantidadPrevia - cantidad < 0) {
+                throw new Exception("");
+            }
+            this.listaProductos.buscar(codProducto).restarCantidadStock(cantidad);
+            return cantidadPrevia - cantidad;
+        } catch (Exception e) {
+            return null;
+        }
+    };
 
     /**
      * Dado un código de producto, indicar las existencias del mismo en el
