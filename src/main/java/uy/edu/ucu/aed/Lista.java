@@ -10,7 +10,17 @@ public class Lista<T> implements ILista<T> {
 
     @Override
     public void insertar(T dato, Comparable clave) {
-        // TODO Auto-generated method stub
+        if (primero == null) {
+            primero = new Nodo<T>(clave, dato);
+
+        } else {
+            Nodo actual = primero;
+
+            while (actual.getSiguiente() != null) {
+                actual = actual.getSiguiente();
+            }
+            actual.setSiguiente(new Nodo<T>(clave, dato));
+        }
         throw new UnsupportedOperationException("Unimplemented method 'insertar'");
     }
 
@@ -55,7 +65,6 @@ public class Lista<T> implements ILista<T> {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'setPrimero'");
     }
-
 
     // implementar los metodos indicados en la interfaz
 }
