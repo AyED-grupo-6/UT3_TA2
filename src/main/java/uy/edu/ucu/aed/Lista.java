@@ -66,14 +66,22 @@ public class Lista<T> implements ILista<T> {
 
     @Override
     public String imprimir() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'imprimir'");
+        StringBuilder stringBuilder = new StringBuilder();
+        Nodo actual = this.primero;
+        while (actual != null) {
+            stringBuilder.append(actual.imprimitAString());
+        }
+        return stringBuilder.toString();
     }
 
     @Override
     public String imprimir(String separador) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'imprimir'");
+        StringBuilder stringBuilder = new StringBuilder();
+        Nodo actual = this.primero;
+        while (actual != null) {
+            stringBuilder.append(actual.imprimitAString() + separador);
+        }
+        return stringBuilder.toString();
     }
 
     @Override

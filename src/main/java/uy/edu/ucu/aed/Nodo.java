@@ -11,7 +11,7 @@ public class Nodo<T> implements INodo<T> {
     private T dato;
     private Nodo<T> siguiente = null;
 
-    public Nodo(Comparable etiqueta, T dato ) {
+    public Nodo(Comparable etiqueta, T dato) {
         this.etiqueta = etiqueta;
         this.dato = dato;
     }
@@ -33,6 +33,10 @@ public class Nodo<T> implements INodo<T> {
     @Override
     public void imprimir() {
         System.out.println(dato.toString());
+    }
+
+    public String imprimitAString() {
+        return dato.toString();
     }
 
     @Override

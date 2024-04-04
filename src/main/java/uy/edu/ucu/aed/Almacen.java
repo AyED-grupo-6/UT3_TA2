@@ -63,7 +63,9 @@ public class Almacen implements IAlmacen {
      *
      * @return
      */
-    public String imprimirProductos();
+    public String imprimirProductos() {
+        return this.listaProductos.imprimir();
+    };
 
     /**
      * Dado un separador ej.:",", ";", imprime los productos separados por tal
@@ -72,7 +74,9 @@ public class Almacen implements IAlmacen {
      * @param separador
      * @return
      */
-    public String imprimirSeparador(String separador);
+    public String imprimirSeparador(String separador) {
+        return this.listaProductos.imprimir(separador);
+    };
 
     /**
      * Agregar stock a un producto existente.
