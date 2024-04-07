@@ -64,6 +64,28 @@ public class Lista<T> implements ILista<T> {
         }
     }
 
+    public boolean eliminar2023(Comparable clave) {
+        if (this.primero == null) {
+            System.out.println("Nada que eliminar. La lista está vacía.");
+            return false;
+        } else if (this.primero.getEtiqueta().compareTo(clave) == 0) {
+            this.primero = this.primero.getSiguiente();
+            return true;
+        }
+
+        Nodo<T> actual = this.primero;
+
+        while (actual.getSiguiente() != null) {
+
+            if (actual.getSiguiente().getEtiqueta().compareTo(clave) == 0) {
+                actual.setSiguiente(actual.getSiguiente().getSiguiente());
+                return true;
+            }
+            actual = actual.getSiguiente();
+        }
+        return false;
+    }
+
     @Override
     public String imprimir() {
         StringBuilder stringBuilder = new StringBuilder();
